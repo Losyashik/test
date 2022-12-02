@@ -1,0 +1,109 @@
+#main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  div {
+    width: 50%;
+    height: 100%;
+    &.form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: inset 10px 0 10px -10px;
+      form {
+        width: 50%;
+        border: 1px solid;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        border-radius: 20px;
+        background: #e1e1e1;
+        transition: all .3s;
+        &.active{
+          height: calc(300px + 1vh + 2em);
+        }
+        h4 {
+          margin: 0 auto;
+          padding: 0;
+        }
+        div.message{
+          overflow: hidden;
+          width: calc(80% - 10px);
+          font-size: 1em;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0 auto;
+          height: 0;
+          border-radius: 20px;
+          padding: 0 5px;
+          text-align: center;
+          transition: height .3s;
+          &.active{
+            position: static;
+            height: 2em;
+            padding: .5vh 5px;
+          }
+        }
+        select,
+        input {
+          display: block;
+          margin: 0 auto;
+          padding: 8px 12px;
+          font-size: 0.9em;
+          border: none;
+          box-shadow: inset 0 0 4px 0;
+          text-align: center;
+          border-radius: 5px;
+        }
+        select {
+          width: calc(86.5% - 20px);
+        }
+        input {
+          width: calc(80% - 20px);
+          &.button {
+            width: 45%;
+          }
+        }
+      }
+    }
+    &.list {
+      display: flex;
+      background: #e1e1e1;
+      justify-content: center;
+      ul {
+        margin: 100px 0;
+        padding: 0;
+        width: 50%;
+        padding: 2vh 1vw;
+        border-radius: 20px;
+        background: #ececec;
+        box-shadow: inset 0 0 5px 0;
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        li {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          padding: 1vh 2vw;
+          div.list_default {
+            width: 100%;
+          }
+          div.list_name {
+            width: 70%;
+          }
+          div.list_delete {
+            width: 30%;
+            img{
+              display: block;
+              width: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
