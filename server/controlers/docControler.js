@@ -2,31 +2,11 @@ import conn from "../database/connect.js";
 
 class userControler {
   getAll(req, res) {
-    conn.query("SELECT DISTINCT  name FROM `docs`;", (err, result) => {
+    conn.query("SELECT name, count(id_user) as count from docs group by name order by count DESC;", (err, result) => {
       if (err) {
         console.log(err);
       } else {
-        result.forEach((item, index) => {
-          conn.query(
-            "SELECT COUNT(id_user) as count FROM `docs` WHERE name = '" +
-              item.name +
-              "'",
-            (err, r) => {
-              if (err) {
-                console.log(err);
-              } else {
-                result[index].count = r[0].count;
-                if (result.length - 1 == index) {
-                  res.json(
-                    result.sort((a, b) => {
-                      return b.count - a.count;
-                    })
-                  );
-                }
-              }
-            }
-          );
-        });
+        res.json(result)
       }
     });
   }
